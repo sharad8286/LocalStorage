@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <style>
+        *{
+            font-family: calibri;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <input type="text" placeholder="Enter UserName" id="user"><br><br>
+    <input type="password" placeholder="Enter Password" id="pass"><br><br>
+    <button onclick="LoginUser()">Login</button>
+
+
+    <script>
+function LoginUser(){
+    var user = document.getElementById("user").value;
+    var pass = document.getElementById("pass").value;
+
+    localStorage.setItem("user", user)
+    var emp={
+        "Name":"Ram",
+        "email":"Ram@gmai.com",
+        "mobile":"868768768",
+        "Course":"PHP",
+        "Fee":15000,
+        "Duration":"Six Month"
+    }
+    localStorage.setItem("info",JSON.stringify(emp));
+    //js flag
+    var status=false;
+    for(var info in username)
+    {
+        if(username[info]==user && password[info]==pass)
+        {
+            status=true;
+            break;
+
+
+        }
+    }
+
+    if(status){
+       window.location.href="Welcome.html";
+    }
+
+    else{
+        alert("Invalid UserName or Password")
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: calibri;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Admin Page</h1>
+    <div align="right"><h2>UserName:-<span id="w"></span></h2></div>
+    <nav align="center">
+        <a href="Welcome.html">Home</a> &nbsp;&nbsp;
+        <a href="profile.html">Profile</a>&nbsp;&nbsp;
+        <a href="course.html">Course</a>&nbsp;&nbsp;
+        <a href="" onclick="Logout()" id="btn">Logout</a>&nbsp;&nbsp;
+    </nav>
+
+<h2>User Profile</h2>
+<table border="1" width="20%">
+    <tr>
+        <th width="50%">Name</th>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th>Mobile</th>
+        <td></td>
+    </tr>
+</table>
+
+<script src="security.js"></script>
+    <script>
+        var username = localStorage.getItem("user");
+        document.getElementById("w").innerHTML=username;
+
+        //convert string to object 
+        var userinfo = JSON.parse(localStorage.getItem("info"));
+        var store = document.getElementsByTagName("td");
+        store[0].innerHTML=userinfo['Name']
+        store[1].innerHTML=userinfo['email']
+        store[2].innerHTML=userinfo['mobile']
+
+        console.log(userinfo)
+btn.addEventListener("click",function(e){
+    e.preventDefault();
+    localStorage.clear();
+    window.location.href="Login.html";
+
+})
+          
+     
+    </script>
+</body>
+</html>
